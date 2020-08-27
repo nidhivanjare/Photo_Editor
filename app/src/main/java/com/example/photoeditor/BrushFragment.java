@@ -100,7 +100,7 @@ public class BrushFragment extends BottomSheetDialogFragment implements ColorAda
 
             }
         });
-
+`git g
         btn_brush_state.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
