@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".BrushFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:text="Brush Size"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekbar_brush_size"
+            android:min="1"
+            android:max="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </SeekBar>
+
+
+        <TextView
+            android:text="Opacity"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekbar_brush_opacity"
+            android:min="1"
+            android:max="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </SeekBar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/recycler_color"
+            android:layout_marginTop="5dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ToggleButton
+            android:id="@+id/btn_brush_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="Brush"
+            android:textOn="Eraser">
+
+        </ToggleButton>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

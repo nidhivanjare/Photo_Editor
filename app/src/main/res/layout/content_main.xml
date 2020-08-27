@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_height="match_parent"
+    tools:context=".homepage"
+
+    tools:showIn="@layout/activity_homepage">
+    
+    <ja.burhanrashid52.photoeditor.PhotoEditorView
+        android:id="@+id/image_preview"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"/>
+
+
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:layout_alignParentBottom="true"
+    android:measureAllChildren="false"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:id="@+id/btn_filter_list"
+            android:padding="16dp"
+            app:cardBackgroundColor="@color/purple">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_baseline_image_24">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FILTER"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:layout_gravity="center_horizontal">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:id="@+id/btn_edit"
+            android:padding="16dp"
+            app:cardBackgroundColor="@color/purple"
+            android:layout_marginLeft="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_baseline_edit_24">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:layout_gravity="center_horizontal">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:id="@+id/btn_brush"
+            android:padding="16dp"
+            app:cardBackgroundColor="@color/purple"
+            android:layout_marginLeft="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_baseline_brush_24">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BRUSH"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:layout_gravity="center_horizontal">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</HorizontalScrollView>
+
+
+
+
+
+</RelativeLayout>
