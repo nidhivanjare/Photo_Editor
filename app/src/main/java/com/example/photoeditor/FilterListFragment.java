@@ -40,11 +40,10 @@ public class FilterListFragment extends BottomSheetDialogFragment implements Fil
 
 
     public  static FilterListFragment getInstance(Bitmap bitmapSave) {
-
         bitmap = bitmapSave;
+
         if(instance == null) {
             instance = new FilterListFragment();
-
         }
 
         return instance;

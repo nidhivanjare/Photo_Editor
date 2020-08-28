@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:maxHeight="200dp"
+        android:textSize="20dp"
         android:hint="Enter your text"
         android:id="@+id/edit_add_text">
 
