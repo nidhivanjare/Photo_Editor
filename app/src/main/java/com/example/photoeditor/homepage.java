@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.photoeditor.Adapter.ViewPagerAdapter;
+import com.example.photoeditor.Interface.AddTextFragmentListner;
 import com.example.photoeditor.Interface.BrushFragmentListner;
 import com.example.photoeditor.Interface.EditImageFragmentListner;
 import com.example.photoeditor.Interface.FiltersListFragmentListner;
@@ -49,7 +50,7 @@ import ja.burhanrashid52.photoeditor.OnSaveBitmap;
 import ja.burhanrashid52.photoeditor.PhotoEditor;
 import ja.burhanrashid52.photoeditor.PhotoEditorView;
 
-public class homepage extends AppCompatActivity implements FiltersListFragmentListner, EditImageFragmentListner, BrushFragmentListner {
+public class homepage extends AppCompatActivity implements FiltersListFragmentListner, EditImageFragmentListner, BrushFragmentListner, AddTextFragmentListner {
 
     public static final  String pictureName = "flash.jpeg";
     public static final int PERMISSION_PICK_IMAGE =1000;
@@ -64,7 +65,7 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
     EditImageFragment editImageFragment;
 
 
-    CardView btn_filter_list , btn_edit , btn_brush;
+    CardView btn_filter_list , btn_edit , btn_brush , btn_add_text;
 
 
 
@@ -96,6 +97,7 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
         btn_edit = (CardView)findViewById(R.id.btn_edit);
         btn_filter_list=(CardView)findViewById(R.id.btn_filter_list);
         btn_brush=(CardView)findViewById(R.id.btn_brush);
+        btn_add_text=(CardView)findViewById(R.id.btn_add_text);
 
         btn_filter_list.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +135,16 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
                 BrushFragment brushFragment  = BrushFragment.getInstance();
                 brushFragment.setListner(homepage.this);
                 brushFragment.show(getSupportFragmentManager(),brushFragment.getTag());
+            }
+        });
+
+        btn_add_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AddTextFragment addTextFragment = AddTextFragment.getInstance();
+                addTextFragment.setListner(homepage.this);
+                addTextFragment.show(getSupportFragmentManager(),addTextFragment.getTag());
             }
         });
 
@@ -403,6 +415,11 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
         else
             photoEditor.setBrushDrawingMode(true);
 
+    }
+
+    @Override
+    public void onAddTextButtonClick(String text, int color) {
+        photoEditor.addText(text,color);
     }
 }
 

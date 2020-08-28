@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+
+
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
@@ -64,7 +66,7 @@ public class BrushFragment extends BottomSheetDialogFragment implements ColorAda
         recycler_color.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
 
-        colorAdapter = new ColorAdapter(getContext(),genColorList(),this);
+        colorAdapter = new ColorAdapter(getContext(),this);
         recycler_color.setAdapter(colorAdapter);
 
         seekBar_opacity_size.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -110,22 +112,6 @@ public class BrushFragment extends BottomSheetDialogFragment implements ColorAda
 
 
         return  itemView;
-    }
-
-    private List<Integer> genColorList() {
-
-        List<Integer> colorList = new ArrayList<> ();
-
-        colorList.add(Color.parseColor("#131722"));
-        colorList.add(Color.parseColor("#e7a68a"));
-        colorList.add(Color.parseColor("#a0c4e2"));
-        colorList.add(Color.parseColor("#294d6c"));
-        colorList.add(Color.parseColor("#cbe0ff"));
-        colorList.add(Color.parseColor("#cbcba9"));
-        colorList.add(Color.parseColor("#6d8f7b"));
-        colorList.add(Color.parseColor("#ff0000"));
-        colorList.add(Color.parseColor("#ef7a85"));
-        return colorList;
     }
 
     @Override
