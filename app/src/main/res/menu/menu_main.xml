@@ -18,7 +18,15 @@
         android:orderInCategory="101"
         android:enabled="true"
         app:showAsAction="always"
-        android:title="SAVE">
+        android:title="SAVE"/>
+
+
+    <item
+        android:id="@+id/pri_pol"
+        android:orderInCategory="101"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:title="PRIVACY">
 
     </item>
 

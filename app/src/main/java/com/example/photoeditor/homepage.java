@@ -52,7 +52,7 @@ import ja.burhanrashid52.photoeditor.PhotoEditorView;
 
 public class homepage extends AppCompatActivity implements FiltersListFragmentListner, EditImageFragmentListner, BrushFragmentListner, AddTextFragmentListner {
 
-    public static final  String pictureName = "flash.jpeg";
+    public static final  String pictureName = "flash.jpg";
     public static final int PERMISSION_PICK_IMAGE =1000;
     public static final int PERMISSION_INSERT_IMAGE =1001;
 
@@ -302,6 +302,11 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
         if(id ==  R.id.action_save){
             saveImageToGallery();
             return true;
+        }
+
+        if(id ==  R.id.pri_pol){
+            Intent i = new  Intent(homepage.this,Privacy_policy.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
