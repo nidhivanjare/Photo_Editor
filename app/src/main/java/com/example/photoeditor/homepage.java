@@ -43,6 +43,7 @@ import com.zomato.photofilters.imageprocessors.subfilters.BrightnessSubFilter;
 import com.zomato.photofilters.imageprocessors.subfilters.ContrastSubFilter;
 import com.zomato.photofilters.imageprocessors.subfilters.SaturationSubfilter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -415,32 +416,42 @@ public class homepage extends AppCompatActivity implements FiltersListFragmentLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_OK  ) {
+        if (resultCode == RESULT_OK) {
 
-            if(requestCode == PERMISSION_PICK_IMAGE){
-            Bitmap bitmap = BitmapUtils.getBitmapFromGallery(this, data.getData(), 800, 800);
+            if (requestCode == PERMISSION_PICK_IMAGE) {
+                Uri selectedImage = data.getData();
+                Bitmap bitmap;
+                try {
+                    bitmap = BitmapUtils.decodeUri(this,selectedImage,800);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return;
+                }
+                originalBitmap.recycle();
+                finalBitmap.recycle();
+                filteredBitmap.recycle();
 
-            originalBitmap.recycle();
-            finalBitmap.recycle();
-            filteredBitmap.recycle();
+                originalBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                finalBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+                finalBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+                photoEditorView.getSource().setImageBitmap(originalBitmap);
+                bitmap.recycle();
 
-            originalBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-            finalBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-            finalBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-            photoEditorView.getSource().setImageBitmap(originalBitmap);
-            bitmap.recycle();
-
-            filterListFragment = FilterListFragment.getInstance(originalBitmap);
-            filterListFragment.setListner(this);
-        }
-        else if(requestCode == PERMISSION_INSERT_IMAGE){
-
-            Bitmap bitmap = BitmapUtils.getBitmapFromGallery(this,data.getData(),300,300);
-            photoEditor.addImage(bitmap);
+                filterListFragment = FilterListFragment.getInstance(originalBitmap);
+                filterListFragment.setListner(this);
+            } else if (requestCode == PERMISSION_INSERT_IMAGE) {
+                Uri selectedImage = data.getData();
+                Bitmap bitmap;
+                try {
+                    bitmap = BitmapUtils.decodeUri(this,selectedImage,300);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return;
+                }
+                photoEditor.addImage(bitmap);
             }
 
         }
-
 
     }
 
